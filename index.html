@@ -13,13 +13,78 @@
 </head>
 
 <body>
-       
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">C'Mon 'N Ride the Train</h1>
+        <hr class="my-4">
+      </div>
 
+      <div class="row">
 
+        <div class="col-md-12">
+  
+          <!-- Current Train Schedule-->
+          <div class="card mb-4">
+            <div class="card-header">Current Train Schedule</div>
+            <div class="card-body">
+              <table class="table table-sm table-hover" id='train-table'>
+                <thead>
+                  <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Desitination</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Add Train  -->
+          <div class="card mb-4">
+            <div class="card-header">Add Train</div>
+            <div class="card-body">
+  
+              <!-- Entry Form -->
+              <form>
+                <div class="form-group">
+                  <label for="train-name-input">Train Name</label>
+                  <input class="form-control" id="train-name-input" placeholder="Thomas the Tank Engine" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="destination-input">Destination</label>
+                  <input class="form-control" id="destination-input" placeholder="Shining Time Station" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="first-train-input">First Train Time (HH:mm - military time)</label>
+                  <input class="form-control" id="first-train-input" placeholder="12:00" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="frequency-input">Frequency (min)</label>
+                  <input class="form-control" id="frequency-input" placeholder="15" type="text">
+                </div>
+                <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
         <!------------------        Script         --------------------->
+        <!--Firebase-->
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <!--Moment.js-->
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
         <!--Jquery-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--app.js-->
