@@ -1,4 +1,5 @@
   var index = 0;
+  var currentTime;
   
   // Initialize Firebase
   var config = {
@@ -13,8 +14,17 @@
 
   var database = firebase.database();
 
-var currentTime = moment().format("hh:mm A");
-    $(".time").text(currentTime);
+ 
+
+function clock() {
+currentTime.html(moment().format('h:mm:ss a'));
+};
+
+$(document).ready(function(){
+currentTime = $('.time')
+clock();
+setInterval(clock, 1000);
+});
 
   // Button for adding trains
 $("#add-train-btn").on("click", function(event) {
