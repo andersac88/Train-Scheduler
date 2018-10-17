@@ -13,6 +13,9 @@
 
   var database = firebase.database();
 
+var currentTime = moment().format("hh:mm A");
+    $(".time").text(currentTime);
+
   // Button for adding trains
 $("#add-train-btn").on("click", function(event) {
     event.preventDefault();
@@ -71,11 +74,10 @@ console.log(index)
     var nextArrival = moment().add(minutesAway, "hh:mm").format("hh:mm A");
     console.log(nextArrival)
 // create a row in the html when a user adds an entry
-
   var deleteButton = $("<button>");
   deleteButton.attr("data-key", childSnapshot.key);
   deleteButton.attr("data-value", index);
-  deleteButton.addClass("delete")
+  deleteButton.addClass("delete btn btn-outline-dark")
   deleteButton.text("Delete")
   var newTrainRow = $("<tr>")
   newTrainRow.attr("data-value", index)
