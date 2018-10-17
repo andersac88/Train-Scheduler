@@ -81,7 +81,7 @@ console.log(index)
     var minutesAway = trainFrequency - tRemainder;
   
 
-    var nextArrival = moment().add(minutesAway, "hh:mm").format("hh:mm A");
+    var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm A");
     console.log(nextArrival)
 // create a row in the html when a user adds an entry
   var deleteButton = $("<button>");
