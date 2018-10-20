@@ -17,7 +17,7 @@
  
 
 function clock() {
-currentTime.html(moment().format('h:mm:ss a'));
+currentTime.html("The current time is: " + moment().format('h:mm a'));
 };
 
 $(document).ready(function(){
