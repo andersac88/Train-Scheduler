@@ -1,5 +1,6 @@
   var index = 0;
   var currentTime;
+  var trainSound = new Audio("./audio/steamTrain.mp3")
   
   // Initialize Firebase
   var config = {
@@ -14,10 +15,8 @@
 
   var database = firebase.database();
 
- 
-
 function clock() {
-currentTime.html("The current time is: " + moment().format('h:mm a'));
+currentTime.html("The time is: " + moment().format('h:mm a'));
 };
 
 $(document).ready(function(){
@@ -28,6 +27,7 @@ setInterval(clock, 1000);
 
   // Button for adding trains
 $("#add-train-btn").on("click", function(event) {
+    trainSound.play();
     event.preventDefault();
   
     // Grab user input
@@ -47,12 +47,6 @@ $("#add-train-btn").on("click", function(event) {
     // Uploads train data to the database
     database.ref().push(newTrain);
   
-    // Logs everything to console
-    console.log(newTrain.train);
-    console.log(newTrain.destination);
-    console.log(newTrain.first);
-    console.log(newTrain.frequency);
-  
   
     // Clears all of the text-boxes
     $("#train-name-input").val("");
@@ -63,8 +57,6 @@ $("#add-train-btn").on("click", function(event) {
 
 // Create Firebase event for adding train to the database 
 database.ref().on("child_added", function(childSnapshot) {
-    console.log(childSnapshot.val());
-console.log(index)
 // store everything as a variable
     var trainName = childSnapshot.val().train;
     var trainDestination = childSnapshot.val().destination;
@@ -74,7 +66,7 @@ console.log(index)
     var firstTimeConverted = moment(firstTrain, "HH:mm").subtract(1, "years")
 
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log(diffTime);
+
 
     var tRemainder = diffTime % trainFrequency;
 
@@ -82,7 +74,7 @@ console.log(index)
   
 
     var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm A");
-    console.log(nextArrival)
+    
 // create a row in the html when a user adds an entry
   var deleteButton = $("<button>");
   deleteButton.attr("data-key", childSnapshot.key);
@@ -103,7 +95,7 @@ console.log(index)
 
 //increase index by one
 index++;
-console.log(index)
+
   // Append the new row to the table
   $("#train-table > tbody").append(newTrainRow);
 }, function(errorObject) {
@@ -113,7 +105,7 @@ console.log(index)
   // create a delete button
 
 function exterminate() {
-    console.log(this)
+
     $(".train" + $(this).attr("data-value")).remove()
     database.ref().child($(this).attr("data-key")).remove();
 }

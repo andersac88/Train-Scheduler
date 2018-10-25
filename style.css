@@ -1,7 +1,16 @@
 .display-4 {
-    font-family: 'Diplomata', cursive;
+    font-family: 'Diplomata', cursive !important;
 }
 
 html body {
    background-color: lightslategrey;
+   font-family: 'Source Code Pro', monospace;
+}
+
+.card-body {
+    background-color: gainsboro;
+}
+
+.currentTrainRow {
+    background-color: rgb(247, 247, 247)
 }
