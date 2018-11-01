@@ -12,3 +12,5 @@ This app is an introduction to Firebase and moment JS but also reinforces CSS, B
 
 This project is currently maintained and updated by Andrew Andersen (andersac88@gmail.com) if you have any questions, feel free to contact me directly.
 
+Link to Try Application:
+https://andersac88.github.io/Train-Scheduler/
